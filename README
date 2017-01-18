@@ -1,0 +1,65 @@
+
+Procurei desenvolver o projeto o mais simples possível de forma a simplificar a manutenção do mesmo.
+
+O projeto usa o Maven para que o usuário nao tenha de se preocupar com dependências sendo possível apenas pegar o 
+projeto e executar.
+
+Tendo em mente a simplicidade, o desenvolvedor mobile irá consiguir testar seu App sem complicações,
+bastando seguir o passo a passo abaixo:
+
+
+1 - Abrir a pasta de java, pacote "br.com.zup.test"
+2 - clicar com o botão direito na classe Server e selecionar "Run As" -> Java Application.
+
+
+Feito isto o servidor estará rodando possibilitando efetuar testes unitários ou mesmo criar um modelo para se usar no App.
+
+O projeto cria modelos genéricos, primeiro o desenvolvedor do aplicativo irá cadastrar seu modelo padrão. 
+Através do WebService "ModelResource".
+Uma vez tendo o modelo cadastrado, será possível popular este modelo acrescentando valores nos campos.
+
+um exemplo de URL válida segue abaixo (GET):
+http://localhost:8080/model/1
+
+Tanto para cadastrar um modelo quanto para popular um modelo cadastrado terá o path padrao model/
+
+Todos os testes da aplicação foram efetuados usando o "Postman".
+
+Caso seja de interesse, segue abaixo um XML exemplo para facilitar testes.
+
+<model>
+    <modelName>Produto</modelName>
+    <id>2</id>
+    <attributes>
+         <entry>
+             <key>nome</key>
+             <value>String</value>
+         </entry>
+         <entry>
+             <key>Quantidade</key>
+             <value>Long</value>
+         </entry>
+         <entry>
+             <key>Marca</key>
+             <value>String</value>
+         </entry>
+         <entry>
+             <key>Valor</key>
+             <value>double</value>
+         </entry>
+     </attributes>
+</model>
+
+Por fim, inseri duas classes localizadas em "br.com.zup.dao.exemplo". Tais classes demonstram como seria executado 
+o projeto caso houvesse um banco de dados com ajuda do hibernate.
+
+Não foi usado recursos do java 8 devido a um erro do servidor usado no projeto. Sendo assim, em alguns locais deixei comentado como seria o uso real
+em uma aplicação com integração com um servidor de aplicação real. 
+
+O projeto faz uso do padrão de projeto Builder para facilitar a criação de objetos modelo e o padrão de projetos Strategy permitindo fácil manutenção
+e classes mais estáveis.
+
+Este foi um projeto divertido de se fazer,
+Obrigado.
+
+
